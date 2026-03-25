@@ -15,8 +15,21 @@ export function Experience() {
       <ul className="mt-10 space-y-10">
         <li className="border-l border-card-border pl-6">
           <p className="text-sm text-fg/55">Jan 2026 to Dec 2026</p>
-          <h3 className="mt-1 text-lg font-medium text-fg">Developer / Ops</h3>
-          <p className="mt-0.5 text-fg/80">Ontario Science Centre · Toronto, ON</p>
+          <div className="mt-1 flex flex-wrap items-start gap-3 sm:gap-4">
+            <span className="mt-0.5 inline-flex shrink-0 overflow-hidden rounded-lg border border-card-border bg-fg px-3 py-2">
+              <img
+                src="/images/Ontario_Science_Centre_Logo.svg.png"
+                alt="Ontario Science Centre logo"
+                className="h-7 w-auto max-w-[min(100%,10rem)] object-contain object-left sm:h-8"
+                width={160}
+                height={40}
+              />
+            </span>
+            <div className="min-w-0">
+              <h3 className="text-lg font-medium text-fg">Developer / Ops</h3>
+              <p className="mt-0.5 text-fg/80">Ontario Science Centre · Toronto, ON</p>
+            </div>
+          </div>
           <ul className="mt-3 max-w-prose list-inside list-disc space-y-2 text-sm leading-relaxed text-fg/75">
             <li>
               Developed interactive STEM games in Godot, including core gameplay loops, UI flows, and

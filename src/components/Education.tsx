@@ -17,12 +17,23 @@ export function Education() {
       aria-labelledby="education-heading"
     >
       <p className="text-xs font-medium uppercase tracking-widest text-fg/50">Education</p>
-      <h2
-        id="education-heading"
-        className="mt-2 text-3xl font-medium tracking-tight text-fg sm:text-4xl"
-      >
-        York University
-      </h2>
+      <div className="mt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+        <h2
+          id="education-heading"
+          className="text-3xl font-medium tracking-tight text-fg sm:text-4xl"
+        >
+          York University
+        </h2>
+        <span className="inline-flex overflow-hidden rounded-lg border border-card-border bg-fg px-3 py-2">
+          <img
+            src="/images/Logo_York_University.svg.png"
+            alt="York University logo"
+            className="h-8 w-auto max-w-[min(100%,11rem)] object-contain object-left sm:h-9"
+            width={180}
+            height={44}
+          />
+        </span>
+      </div>
       <div className="mt-8 space-y-6 text-base leading-relaxed text-fg/85">
         <div>
           <p className="font-medium text-fg">Honours Bachelor of Computer Science</p>
