@@ -1,3 +1,5 @@
+import { publicImagePath } from '../constants'
+
 export function Experience() {
   return (
     <section
@@ -18,7 +20,7 @@ export function Experience() {
           <div className="mt-1 flex flex-wrap items-start gap-3 sm:gap-4">
             <span className="mt-0.5 inline-flex shrink-0 overflow-hidden rounded-lg border border-card-border bg-fg px-3 py-2">
               <img
-                src="/images/Ontario_Science_Centre_Logo.svg.png"
+                src={publicImagePath('Ontario_Science_Centre_Logo.png')}
                 alt="Ontario Science Centre logo"
                 className="h-7 w-auto max-w-[min(100%,10rem)] object-contain object-left sm:h-8"
                 width={160}

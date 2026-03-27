@@ -1,3 +1,5 @@
+import { publicImagePath } from '../constants'
+
 const courses = [
   'Data Structures',
   'Computer Architecture',
@@ -26,7 +28,7 @@ export function Education() {
         </h2>
         <span className="inline-flex overflow-hidden rounded-lg border border-card-border bg-fg px-3 py-2">
           <img
-            src="/images/Logo_York_University.svg.png"
+            src={publicImagePath('Logo_York_University.png')}
             alt="York University logo"
             className="h-8 w-auto max-w-[min(100%,11rem)] object-contain object-left sm:h-9"
             width={180}
