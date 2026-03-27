@@ -33,7 +33,7 @@ export function Hero() {
           </div>
         </div>
         <img
-          src="/images/joey.png"
+          src="/assets/joey.png"
           alt="Joey Rudd"
           className="order-1 aspect-[4/5] w-40 max-w-[200px] shrink-0 object-cover object-top rounded-2xl border border-card-border shadow-[0_2px_12px_rgba(0,0,0,0.35)] mx-auto md:order-2 md:mx-0 md:aspect-auto md:h-[13rem] md:w-44"
           loading="eager"
