@@ -1,14 +1,21 @@
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import { SectionHeading } from './SectionHeading'
+
 export function About() {
+  const { ref, visible } = useScrollReveal()
+
   return (
     <section
+      ref={ref}
       id="about"
-      className="mx-auto w-full max-w-[860px] px-4 py-16 sm:px-6 sm:py-20"
+      className={`section-reveal mx-auto w-full max-w-[860px] px-4 py-16 text-left sm:px-6 sm:py-20 ${
+        visible ? 'section-reveal--visible' : ''
+      }`}
       aria-labelledby="about-heading"
     >
-      <p className="text-xs font-medium uppercase tracking-widest text-fg/50">About</p>
-      <h2 id="about-heading" className="mt-2 text-3xl font-medium tracking-tight text-fg sm:text-4xl">
+      <SectionHeading id="about-heading" num="01">
         About me
-      </h2>
+      </SectionHeading>
       <div className="mt-8 space-y-4 text-base leading-relaxed text-fg/85">
         <p>
           Hi, I&apos;m Joey, a Computer Science student at York University in the Lassonde School of
