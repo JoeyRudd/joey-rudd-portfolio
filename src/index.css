@@ -361,3 +361,237 @@ html[data-theme='light'] .tag-mono:hover {
     opacity: 1;
   }
 }
+
+/* ─── Hero name gradient ─────────────────────────────────────── */
+.hero-name {
+  background: linear-gradient(
+    135deg,
+    #e8e8e8 0%,
+    #00c8ff 40%,
+    #e8e8e8 60%,
+    #00c8ff 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+html[data-theme='light'] .hero-name {
+  background: linear-gradient(
+    135deg,
+    #18181b 0%,
+    #00a8d4 40%,
+    #18181b 60%,
+    #00a8d4 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name {
+    animation: none;
+  }
+}
+
+/* ─── Animated gradient card border (hover only) ─────────────── */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.card-glow-border {
+  position: relative;
+}
+
+.card-glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    var(--color-accent) 90deg,
+    transparent 180deg
+  );
+  animation: border-rotate 4s linear infinite;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-glow-border:hover::before {
+  opacity: 1;
+}
+
+/* Ensure card content sits above the glow border */
+.card-glow-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes border-rotate {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-glow-border::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ─── Experience timeline ────────────────────────────────────── */
+.timeline-node {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  animation: timeline-pulse 2s ease infinite;
+}
+
+@keyframes timeline-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 200, 255, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-node {
+    animation: none;
+  }
+}
+
+/* ─── Aurora background blobs ────────────────────────────────── */
+.aurora-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+}
+
+.aurora-blob--1 {
+  width: 600px;
+  height: 600px;
+  background: #00c8ff;
+  top: -200px;
+  right: -100px;
+}
+
+.aurora-blob--2 {
+  width: 500px;
+  height: 500px;
+  background: #6366f1;
+  top: 40%;
+  left: -200px;
+}
+
+.aurora-blob--3 {
+  width: 500px;
+  height: 500px;
+  background: #00c8ff;
+  bottom: -100px;
+  right: 30%;
+}
+
+html[data-theme='light'] .aurora-blob {
+  opacity: 0.025;
+}
+
+/* ─── Project card spotlight (set overflow-hidden on parent) ─── */
+.card-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.card-spotlight.visible {
+  opacity: 1;
+}
+
+/* ─── Konami easter egg terminal ─────────────────────────────── */
+.konami-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.konami-terminal {
+  font-family: var(--font-mono);
+  color: #00ff41;
+  max-width: 560px;
+  width: 100%;
+  background: #0a0a0a;
+  border: 1px solid #00ff41;
+  border-radius: 8px;
+  padding: 2rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.15);
+}
+
+.konami-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  background: #00ff41;
+  animation: konami-blink 0.6s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+@keyframes konami-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.konami-bar-fill {
+  display: inline-block;
+  color: #00ff41;
+}
+
+.konami-bar-empty {
+  display: inline-block;
+  color: #1a4a1a;
+}

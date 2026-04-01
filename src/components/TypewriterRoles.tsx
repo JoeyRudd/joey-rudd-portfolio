@@ -50,7 +50,8 @@ export function TypewriterRoles() {
       }
     }
 
-    timeoutId = window.setTimeout(tick, TYPE_MS)
+    // Delay the first character so the hero name animates in first
+    timeoutId = window.setTimeout(tick, 400)
     return () => {
       cancelled = true
       window.clearTimeout(timeoutId)

@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import imgHypertrofit from '../assets/projects/project-hypertrofit.png'
-import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useTilt } from '../hooks/useTilt'
+import { fadeUp, staggerContainer } from '../utils/motion'
 import { SectionHeading } from './SectionHeading'
 
 type ProjectLink = {
@@ -52,8 +54,6 @@ const projects: Project[] = [
   },
 ]
 
-const cardClass = 'card-elevated p-6 sm:p-7'
-
 const imageClass =
   'aspect-[16/10] w-full rounded-md border border-card-border object-cover object-top'
 
@@ -104,59 +104,83 @@ function ProjectVisualBlock({ visual }: { visual: ProjectVisual }) {
   )
 }
 
-export function Projects() {
-  const { ref, visible } = useScrollReveal()
+function ProjectCard({ project, delay }: { project: Project; delay: number }) {
+  const { ref, spotlightRef, onMouseEnter, onMouseMove, onMouseLeave } = useTilt({ strength: 10 })
 
   return (
-    <section
-      ref={ref}
-      id="projects"
-      className={`section-reveal mx-auto w-full max-w-[860px] px-4 py-16 text-left sm:px-6 sm:py-20 ${
-        visible ? 'section-reveal--visible' : ''
-      }`}
-      aria-labelledby="projects-heading"
+    <motion.article
+      key={project.title}
+      variants={fadeUp}
+      transition={{ delay }}
+      className="card-elevated card-glow-border relative overflow-hidden p-6 sm:p-7"
+      ref={ref as React.RefObject<HTMLElement & HTMLDivElement>}
+      onMouseEnter={onMouseEnter}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
     >
-      <SectionHeading id="projects-heading" num="04">
-        Things I&apos;ve built
-      </SectionHeading>
-      <div className="mt-10 grid gap-6">
-        {projects.map((project) => (
-          <article key={project.title} className={cardClass}>
-            <div className="mb-6">
-              <ProjectVisualBlock visual={project.visual} />
-            </div>
-            <h3 className="text-xl font-semibold text-fg">{project.title}</h3>
-            {project.subtitle ? (
-              <p className="mt-1 text-sm text-fg/55">{project.subtitle}</p>
-            ) : null}
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <li key={tech} className="tag-mono">
-                  {tech}
-                </li>
-              ))}
-            </ul>
-            <ul className="mt-5 list-inside list-disc space-y-2 text-left text-sm leading-relaxed text-fg/75">
-              {project.highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
-              ))}
-            </ul>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {project.links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="btn-secondary"
-                  target={link.external ? '_blank' : undefined}
-                  rel={link.external ? 'noreferrer' : undefined}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </article>
+      {/* Spotlight glow */}
+      <div
+        ref={spotlightRef}
+        className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-200"
+        aria-hidden
+      />
+      <div className="mb-6">
+        <ProjectVisualBlock visual={project.visual} />
+      </div>
+      <h3 className="text-xl font-semibold text-fg">{project.title}</h3>
+      {project.subtitle ? (
+        <p className="mt-1 text-sm text-fg/55">{project.subtitle}</p>
+      ) : null}
+      <ul className="mt-4 flex flex-wrap gap-2">
+        {project.tech.map((tech) => (
+          <li key={tech} className="tag-mono">
+            {tech}
+          </li>
+        ))}
+      </ul>
+      <ul className="mt-5 list-inside list-disc space-y-2 text-left text-sm leading-relaxed text-fg/75">
+        {project.highlights.map((highlight) => (
+          <li key={highlight}>{highlight}</li>
+        ))}
+      </ul>
+      <div className="mt-6 flex flex-wrap gap-3">
+        {project.links.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            className="btn-secondary"
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noreferrer' : undefined}
+          >
+            {link.label}
+          </a>
         ))}
       </div>
-    </section>
+    </motion.article>
+  )
+}
+
+export function Projects() {
+  return (
+    <motion.section
+      id="projects"
+      className="mx-auto w-full max-w-[860px] px-4 py-16 text-left sm:px-6 sm:py-20"
+      aria-labelledby="projects-heading"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.05 }}
+    >
+      <motion.div variants={fadeUp}>
+        <SectionHeading id="projects-heading" num="04">
+          Things I&apos;ve built
+        </SectionHeading>
+      </motion.div>
+      <div className="mt-10 grid gap-6">
+        {projects.map((project, i) => (
+          <ProjectCard key={project.title} project={project} delay={i * 0.1} />
+        ))}
+      </div>
+    </motion.section>
   )
 }

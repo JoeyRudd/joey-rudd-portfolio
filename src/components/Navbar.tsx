@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -56,10 +57,13 @@ export function Navbar() {
   }, [mobileOpen])
 
   return (
-    <header
+    <motion.header
       className={`fixed top-0 right-0 left-0 z-50 border-b border-card-border backdrop-blur-[12px] transition-[background-color] duration-200 ${
         scrolled ? 'bg-[color-mix(in_srgb,var(--color-bg)_90%,transparent)]' : 'bg-[color-mix(in_srgb,var(--color-bg)_78%,transparent)]'
       }`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
       <nav
         className="mx-auto flex max-w-[860px] items-center justify-between gap-4 px-4 py-4 sm:px-6"
@@ -141,6 +145,6 @@ export function Navbar() {
           ))}
         </ul>
       </div>
-    </header>
+    </motion.header>
   )
 }
