@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import imgAdventuresOfCroak from '../assets/projects/project-adventures-of-croak.png'
 import imgHypertrofit from '../assets/projects/project-hypertrofit.png'
 import { useTilt } from '../hooks/useTilt'
 import { fadeUp, staggerContainer } from '../utils/motion'
@@ -17,6 +18,8 @@ type ProjectVisual =
 type Project = {
   title: string
   subtitle?: string
+  tag?: string
+  origin: string
   tech: string[]
   highlights: string[]
   links: ProjectLink[]
@@ -27,6 +30,8 @@ const projects: Project[] = [
   {
     title: 'Hypertrofit',
     subtitle: 'AI fitness & nutrition coach',
+    origin:
+      'I wanted to see if I could build something that felt like a real conversation, not just a form with extra steps. The challenge was keeping the AI grounded — it\'s easy for a fitness chatbot to hallucinate nonsense. That problem led me to RAG.',
     tech: ['Python', 'FastAPI', 'Vue.js', 'Docker', 'OpenRouter'],
     highlights: [
       'Full-stack fitness coach: Vue 3 + Composition API on the front, async FastAPI on the back, wired for real chat flows.',
@@ -43,6 +48,8 @@ const projects: Project[] = [
   {
     title: 'Go CLI Task Manager',
     subtitle: 'No GUI, no problem',
+    origin:
+      'I built this to learn Go properly — not just syntax, but how to structure a real project in a language with strong opinions about it. A CLI todo app is small enough to finish but has enough moving parts to force good decisions.',
     tech: ['Go', 'Cobra', 'SQLite'],
     highlights: [
       'Terminal todo app with CRUD, SQLite persistence, and a tidy split between commands and internal logic.',
@@ -51,6 +58,28 @@ const projects: Project[] = [
     ],
     links: [{ label: 'GitHub', href: 'https://github.com/JoeyRudd/CLI-ToDo-App', external: true }],
     visual: { type: 'terminal' },
+  },
+  {
+    title: 'Adventures of Croak',
+    subtitle: '2D platformer · Godot Engine',
+    tag: 'course project',
+    origin:
+      "Built for my game development course at York. The brief was loose enough that I could focus on what actually matters in a platformer: movement feel. I kept iterating on the character controller until it felt right, then shipped it to itch.io so real people could play it.",
+    tech: ['Godot Engine', 'GDScript'],
+    highlights: [
+      'State-based character controller (idle, run, jump, wall-slide) tuned for responsive platforming.',
+      'Modular scenes for UI, particles, and gameplay so features stay maintainable.',
+      'Released on itch.io — my course deliverable turned into something strangers can actually play.',
+    ],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/JoeyRudd/adventures-of-croak', external: true },
+      { label: 'Play on itch.io', href: 'https://joeyrudd.itch.io/adventures-of-croak', external: true },
+    ],
+    visual: {
+      type: 'image',
+      src: imgAdventuresOfCroak,
+      alt: 'Adventures of Croak: pixel-art platformer gameplay',
+    },
   },
 ]
 
@@ -127,10 +156,16 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
       <div className="mb-6">
         <ProjectVisualBlock visual={project.visual} />
       </div>
+      {project.tag ? (
+        <p className="mb-2 font-mono text-[length:var(--text-sm)] text-text-muted">
+          {project.tag}
+        </p>
+      ) : null}
       <h3 className="text-xl font-semibold text-fg">{project.title}</h3>
       {project.subtitle ? (
         <p className="mt-1 text-sm text-fg/55">{project.subtitle}</p>
       ) : null}
+      <p className="mt-3 text-sm leading-relaxed text-fg/70 italic">{project.origin}</p>
       <ul className="mt-4 flex flex-wrap gap-2">
         {project.tech.map((tech) => (
           <li key={tech} className="tag-mono">

@@ -29,11 +29,11 @@ function HeroImage() {
       <img
         src={publicImagePath('joey.png')}
         alt="Joey Rudd"
-        className="aspect-[4/5] w-40 max-w-[200px] rounded-lg border border-card-border object-cover object-top md:aspect-auto md:h-[13rem] md:w-44"
+        className="aspect-[4/5] w-48 max-w-[220px] rounded-lg border border-card-border object-cover object-top md:aspect-auto md:h-[16rem] md:w-52"
         loading="eager"
         fetchPriority="high"
-        width={200}
-        height={250}
+        width={220}
+        height={290}
       />
     </div>
   )

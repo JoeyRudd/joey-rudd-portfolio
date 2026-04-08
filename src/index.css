@@ -126,28 +126,6 @@ pre {
   font-family: var(--font-mono);
 }
 
-/* Dot grid — full viewport, subtle drift */
-.dot-grid-bg {
-  background-color: var(--color-bg);
-  background-image: radial-gradient(circle, #2e2e2e 1px, transparent 1px);
-  background-size: 24px 24px;
-  animation: dot-grid-drift 40s linear infinite;
-}
-
-@keyframes dot-grid-drift {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 24px 24px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dot-grid-bg {
-    animation: none;
-  }
-}
 
 /* Section scroll reveal */
 .section-reveal {
@@ -409,56 +387,14 @@ html[data-theme='light'] .hero-name {
   }
 }
 
-/* ─── Animated gradient card border (hover only) ─────────────── */
-@property --border-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
+/* ─── Card glow border (static accent on hover) ──────────────── */
 .card-glow-border {
   position: relative;
 }
 
-.card-glow-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from var(--border-angle),
-    transparent 0deg,
-    var(--color-accent) 90deg,
-    transparent 180deg
-  );
-  animation: border-rotate 4s linear infinite;
-  opacity: 0;
-  transition: opacity 300ms ease;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.card-glow-border:hover::before {
-  opacity: 1;
-}
-
-/* Ensure card content sits above the glow border */
-.card-glow-border > * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes border-rotate {
-  to {
-    --border-angle: 360deg;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card-glow-border::before {
-    animation: none;
-    opacity: 0;
-  }
+.card-glow-border:hover {
+  border-color: rgba(0, 200, 255, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 200, 255, 0.1) inset;
 }
 
 /* ─── Experience timeline ────────────────────────────────────── */
