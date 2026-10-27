@@ -3,6 +3,25 @@ import whyMeVideo from '../assets/WhyMe.mp4'
 import { fadeUp, staggerContainer } from '../utils/motion'
 import { SectionHeading } from './SectionHeading'
 
+const introCards = [
+  {
+    label: 'My program',
+    body: 'Honours Bachelor of Computer Science (Co-op) at York University’s Lassonde School of Engineering, expected graduation 2027.',
+  },
+  {
+    label: 'What I love about it',
+    body: 'The mix of problem solving and creativity. My courses have pushed me to think through hard problems logically, and group projects have given me the chance to build genuinely cool things with other students.',
+  },
+  {
+    label: 'Most rewarding co-op moment',
+    body: 'Launching our interactive exhibits at Harbourfront Centre. Watching thousands of visitors use something our team built, then digging into the usage metrics afterwards, made the work feel real in a way no assignment ever has.',
+  },
+  {
+    label: 'Career goal',
+    body: 'To grow as a software developer after graduation. I’m still exploring which field I want to land in, and I’m using co-op and side projects to try different kinds of work before I commit.',
+  },
+]
+
 const lifeEvents = [
   {
     event: 'Burlington, Ontario',
@@ -83,6 +102,16 @@ export function About() {
           a grounded upbringing in Burlington shaped how I treat people and how I approach
           everything I take on.
         </motion.p>
+
+        {/* At a glance — program, why I love it, co-op highlight, career goal */}
+        <motion.div variants={fadeUp} className="grid gap-4 sm:grid-cols-2">
+          {introCards.map((card) => (
+            <div key={card.label} className="card-elevated p-5">
+              <p className="font-mono text-xs uppercase tracking-wide text-accent">{card.label}</p>
+              <p className="mt-2 text-sm leading-relaxed text-fg/80">{card.body}</p>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Mr. Phillips pull quote */}
         <motion.blockquote

@@ -1,5 +1,6 @@
 import { MotionConfig } from 'framer-motion'
 import { About } from './components/About'
+import { Contact } from './components/Contact'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
 import { Goals } from './components/Goals'
@@ -26,6 +27,7 @@ export default function App() {
             <Projects />
             <Goals />
             <Resume />
+            <Contact />
           </main>
         </div>
         <KonamiEasterEgg />

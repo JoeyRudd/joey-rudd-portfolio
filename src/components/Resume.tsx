@@ -15,8 +15,8 @@ export function Resume() {
       viewport={{ once: true, amount: 0.05 }}
     >
       <motion.div variants={fadeUp}>
-        <SectionHeading id="resume-heading" num="07">
-          CV
+        <SectionHeading id="resume-heading" num="06">
+          Resume
         </SectionHeading>
       </motion.div>
       <motion.p variants={fadeUp} className="mt-6 max-w-prose text-base leading-relaxed text-fg/75">
@@ -37,7 +37,6 @@ export function Resume() {
           className="h-[min(70vh,720px)] w-full bg-surface-2"
         />
       </motion.div>
-      <div className="mt-12 border-t border-card-border pb-4 pt-8" aria-hidden />
     </motion.section>
   )
 }
