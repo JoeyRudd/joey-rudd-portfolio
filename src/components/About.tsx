@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import whyMeVideo from '../assets/WhyMe.mp4'
+import aboutMePoster from '../assets/about-me-poster.jpg'
 import { fadeUp, staggerContainer } from '../utils/motion'
 import { SectionHeading } from './SectionHeading'
 
@@ -46,8 +47,9 @@ export function About() {
           <div className="overflow-hidden rounded-lg border border-card-border bg-surface">
             <video
               src={whyMeVideo}
+              poster={aboutMePoster}
               controls
-              preload="metadata"
+              preload="none"
               className="w-full"
               aria-label="Joey Rudd — About Me video"
             />
