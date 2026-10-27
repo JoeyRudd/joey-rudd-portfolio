@@ -3,7 +3,6 @@ import { About } from './components/About'
 import { Contact } from './components/Contact'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
-import { Goals } from './components/Goals'
 import { Hero } from './components/Hero'
 import { KonamiEasterEgg } from './components/KonamiEasterEgg'
 import { Navbar } from './components/Navbar'
@@ -25,7 +24,6 @@ export default function App() {
             <Education />
             <Experience />
             <Projects />
-            <Goals />
             <Resume />
             <Contact />
           </main>

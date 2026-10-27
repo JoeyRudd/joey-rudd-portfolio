@@ -15,7 +15,7 @@ export function Resume() {
       viewport={{ once: true, amount: 0.05 }}
     >
       <motion.div variants={fadeUp}>
-        <SectionHeading id="resume-heading" num="06">
+        <SectionHeading id="resume-heading" num="05">
           Resume
         </SectionHeading>
       </motion.div>

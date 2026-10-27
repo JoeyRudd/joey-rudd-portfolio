@@ -22,7 +22,7 @@ export function Contact() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <motion.div variants={fadeUp}>
-        <SectionHeading id="contact-heading" num="07">
+        <SectionHeading id="contact-heading" num="06">
           Get in touch
         </SectionHeading>
       </motion.div>
