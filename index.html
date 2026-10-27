@@ -1,19 +1,122 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joey Rudd | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joey Rudd | Software Developer, York University CS</title>
+  <meta name="description" content="Joey Rudd, Computer Science student at York University's Lassonde School of Engineering and software developer co-op at the Ontario Science Centre.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" href="./src/fonts/archivo-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="mark" href="./">Joey Rudd</a>
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="./" aria-current="page">Home</a></li>
+          <li><a href="./resume/">Resume</a></li>
+          <li><a href="./projects/">Projects</a></li>
+          <li><a href="./contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="name" aria-labelledby="name-h">
+      <h1 id="name-h">Joey<br>Rudd</h1>
+    </section>
+
+    <section class="room" aria-label="Introduction">
+      <picture>
+        <source type="image/webp" srcset="/media/joey-640.webp 640w, /media/joey-1100.webp 1100w" sizes="(max-width: 760px) 100vw, 680px">
+        <img src="/media/joey-1100.webp" width="1100" height="880" alt="Joey Rudd in a black blazer and shirt, smiling, outdoors under a wooden gazebo." fetchpriority="high">
+      </picture>
+
+      <div class="wall-label">
+        <p class="label-sm">JR.2026.00</p>
+        <h2>Joey Rudd, developer</h2>
+        <p class="medium">Computer Science, Lassonde School of Engineering, York University</p>
+        <p class="desc">I'm a third-year CS student on a 12-month co-op as a software developer at the Ontario Science Centre. I build <mark>learning games and 3D interactives</mark> that run on exhibit floors, and I build small full-stack and Go projects on the side when I want to learn something properly.</p>
+        <p class="aside"><span class="label-sm">Off the clock</span><br>[ONE PERSONAL LINE: something only you would say]</p>
+      </div>
+    </section>
+
+    <section class="facts" aria-label="Program, interests and goals">
+      <div class="fact">
+        <h2 class="label-sm">My program</h2>
+        <p>Honours Bachelor of Computer Science (Co-op), Lassonde School of Engineering, York University. Expected May 2028.</p>
+      </div>
+      <div class="fact">
+        <h2 class="label-sm">What I love about it</h2>
+        <p>The mix of problem solving and creativity. Courses push me to think through hard problems logically, and group projects let me build things I'm proud of with other students.</p>
+      </div>
+      <div class="fact">
+        <h2 class="label-sm">Most rewarding co-op moment</h2>
+        <p>Launching our exhibits at Harbourfront Centre. Seeing 5,000+ visitors use what we built, then reading the play data afterwards, made the work feel real.</p>
+      </div>
+      <div class="fact">
+        <h2 class="label-sm">Career goal</h2>
+        <p>To work as a software developer after I graduate. I haven't picked a field yet, so I'm using co-op and side projects to try different kinds of work first.</p>
+      </div>
+    </section>
+
+    <section class="video" aria-labelledby="video-h">
+      <div>
+        <h2 class="sec-h" id="video-h">About<br>me</h2>
+        <p>A short video on who I am and what I've learned building for a real museum floor. About 1.5 minutes.</p>
+      </div>
+      <!-- [REPLACE: COOP 3100 video. This is still the COOP 2100 version. Add a captions file as a <track kind="captions"> once recorded.] -->
+      <video controls preload="none" playsinline width="1280" height="720" poster="/media/about-me-poster.jpg" aria-label="About Me video">
+        <source src="/media/about-me.mp4" type="video/mp4">
+        Your browser can't play this video. <a href="media/about-me.mp4">Download it instead</a>.
+      </video>
+    </section>
+
+    <section class="work" aria-labelledby="work-h">
+      <div class="sec-row">
+        <h2 class="sec-h" id="work-h">Selected work</h2>
+        <a class="arrow-link" href="./projects/">All 6 projects
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" fill="none" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+
+      <article class="exhibit" aria-labelledby="eb-h">
+        <figure>
+          <img src="./src/img/project-extrema-buddies-1200.webp" width="1200" height="705" loading="lazy" decoding="async" alt="Three screens from Extrema Buddies: the title screen with illustrated extremophiles, a Pompeii worm in its hydrothermal vent habitat, and the care menu with feed, clean and socialize actions.">
+        </figure>
+        <div class="txt">
+          <p class="label-sm">JR.2026.01 / Ontario Science Centre</p>
+          <h3 id="eb-h">Extrema Buddies</h3>
+          <p class="medium">Godot 4.7, GDScript. January to October 2026.</p>
+          <p class="desc">A virtual pet game about extremophiles. You keep a Pompeii worm or a brine shrimp alive and learn how real organisms survive in extreme places.</p>
+          <table class="fields">
+            <tr><th scope="row" class="label-sm">Role</th><td>Lead developer (850+ commits)</td></tr>
+            <tr><th scope="row" class="label-sm">Skills</th><td>State machines, 2D physics, English and French localization</td></tr>
+            <tr><th scope="row" class="label-sm">Outcome</th><td>100+ automated tests; two playable species shipped as web builds</td></tr>
+          </table>
+          <p class="credit">&copy; 2026 Ontario Science Centre. All rights reserved.</p>
+          <p class="more"><a class="arrow-link" href="./projects/#extrema-buddies">Read the full project
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" fill="none" stroke-width="1.6"/></svg>
+          </a></p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Joey Rudd</span>
+      <ul>
+        <li><a href="mailto:emailjoeyrudd@gmail.com">emailjoeyrudd@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/joeyrudd" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/JoeyRudd" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
 </html>

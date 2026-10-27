@@ -1,0 +1,134 @@
+/* Joey Rudd ePortfolio. Direction B: Wall Label.
+   Two families: Archivo (labels, headings) and Source Serif 4 (reading text). */
+
+@font-face { font-family: "Archivo"; font-weight: 700; font-style: normal; font-display: swap; src: url("./fonts/archivo-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 900; font-style: normal; font-display: swap; src: url("./fonts/archivo-latin-900-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif"; font-weight: 400; font-style: normal; font-display: swap; src: url("./fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif"; font-weight: 400; font-style: italic; font-display: swap; src: url("./fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif"; font-weight: 600; font-style: normal; font-display: swap; src: url("./fonts/source-serif-4-latin-600-normal.woff2") format("woff2"); }
+
+:root {
+  --white: #ffffff;
+  --ink: #111111;
+  --body: #2b2b2b;
+  --grey: #616161;      /* 6.2:1 on white */
+  --soft: #e9e9e6;
+  --signal: #ffd23f;    /* highlight only, never text colour */
+  --line: 2px solid var(--ink);
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Source Serif", Georgia, serif;
+  --gutter: 48px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--white); color: var(--ink); font: 400 18px/1.55 var(--serif); }
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 var(--gutter); }
+
+.skip { position: absolute; left: 8px; top: -60px; background: var(--ink); color: var(--white); padding: 10px 14px; font: 700 14px var(--sans); z-index: 10; }
+.skip:focus { top: 8px; }
+
+/* Small caps-style label used everywhere: accession numbers, field names */
+.label-sm { font: 700 11px/1.4 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--grey); }
+
+/* ---------- Header / nav ---------- */
+.site-header { border-bottom: var(--line); background: var(--white); }
+.site-header .wrap { display: flex; justify-content: space-between; align-items: stretch; min-height: 56px; }
+.mark { font: 900 15px/56px var(--sans); letter-spacing: .02em; text-transform: uppercase; text-decoration: none; }
+.nav ul { display: flex; list-style: none; height: 100%; }
+.nav li { border-left: var(--line); }
+.nav a { display: flex; align-items: center; height: 100%; padding: 0 22px; font: 700 14px var(--sans); letter-spacing: .04em; text-transform: uppercase; text-decoration: none; }
+.nav a:hover { background: var(--signal); }
+.nav a[aria-current="page"] { background: var(--ink); color: var(--white); }
+.nav a:focus-visible { outline: 3px solid var(--signal); outline-offset: -3px; }
+
+/* ---------- Name ---------- */
+.name { padding-top: 40px; }
+.name h1 { font: 900 clamp(64px, 13.5vw, 196px)/.86 var(--sans); letter-spacing: -.045em; text-transform: uppercase; }
+
+/* ---------- Photo + wall label ---------- */
+.room { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--gutter); padding: 40px 0 64px; border-bottom: var(--line); align-items: end; }
+.room picture, .room img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; background: var(--soft); }
+.wall-label { border: var(--line); padding: 24px 26px 26px; max-width: 460px; }
+.wall-label h2 { font: 700 26px/1.15 var(--sans); letter-spacing: -.01em; margin: 10px 0 4px; }
+.medium { font-style: italic; font-size: 16px; color: var(--body); }
+.wall-label p.desc { margin-top: 16px; font-size: 17px; }
+.wall-label .aside { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--soft); font-size: 16px; }
+mark { background: linear-gradient(transparent 58%, var(--signal) 58%); color: inherit; }
+
+/* ---------- Four facts ---------- */
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: var(--line); }
+.fact { padding: 28px 24px 36px 0; border-right: 1px solid var(--ink); }
+.fact + .fact { padding-left: 24px; }
+.fact:last-child { border-right: 0; }
+.fact h2 { margin-bottom: 12px; }
+.fact p { font-size: 17px; }
+
+/* ---------- Video ---------- */
+.video { display: grid; grid-template-columns: 1fr 2fr; gap: var(--gutter); padding: 56px 0; border-bottom: var(--line); }
+.sec-h { font: 900 40px/1 var(--sans); letter-spacing: -.02em; text-transform: uppercase; }
+.video p { margin-top: 14px; font-size: 16px; color: var(--body); max-width: 34ch; }
+.video video { width: 100%; aspect-ratio: 16 / 9; background: var(--soft); border: var(--line); }
+
+/* ---------- Featured project ---------- */
+.work { padding: 56px 0 88px; }
+.sec-row { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 28px; }
+.exhibit { display: grid; grid-template-columns: 1.4fr 1fr; border: var(--line); }
+.exhibit figure { border-right: var(--line); background: #28243a; display: flex; flex-direction: column; justify-content: center; }
+.exhibit figure img { width: 100%; aspect-ratio: 1200 / 705; object-fit: cover; }
+.exhibit .txt { padding: 26px 28px 28px; }
+.exhibit h3 { font: 900 34px/1 var(--sans); letter-spacing: -.02em; text-transform: uppercase; margin: 8px 0 4px; }
+.exhibit p.desc { margin: 16px 0 18px; font-size: 17px; }
+.fields { width: 100%; border-collapse: collapse; font-size: 15px; }
+.fields th { text-align: left; vertical-align: top; width: 96px; padding: 8px 12px 8px 0; }
+.fields td { padding: 6px 0; border-top: 1px solid var(--soft); }
+.fields tr:first-child td { border-top: 0; }
+.more { margin-top: 16px; }
+.credit { margin-top: 16px; font: 700 12px/1.4 var(--sans); color: var(--grey); }
+
+.arrow-link { display: inline-flex; align-items: center; gap: 6px; font: 700 13px var(--sans); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border-bottom: 3px solid var(--signal); padding-bottom: 1px; }
+.arrow-link:hover { background: var(--signal); }
+.arrow-link svg { width: 11px; height: 11px; flex: none; }
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: var(--line); padding: 24px 0 48px; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; font: 700 13px var(--sans); }
+.site-footer ul { display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; }
+.site-footer a { text-decoration: none; border-bottom: 2px solid var(--signal); }
+
+/* ---------- Mobile: designed, not just stacked ---------- */
+@media (max-width: 760px) {
+  :root { --gutter: 16px; }
+  body { font-size: 17px; }
+  .site-header .wrap { flex-direction: column; min-height: 0; padding: 0; }
+  .mark { padding: 0 16px; line-height: 44px; }
+  .nav ul { border-top: var(--line); }
+  .nav li { flex: 1; }
+  .nav li:first-child { border-left: 0; }
+  .nav a { justify-content: center; padding: 0; min-height: 46px; font-size: 12px; letter-spacing: .02em; }
+  .name { padding-top: 24px; }
+  .room { grid-template-columns: 1fr; gap: 0; padding: 24px 0 36px; }
+  .wall-label { max-width: none; margin-top: 16px; }
+  .facts { grid-template-columns: 1fr; }
+  .fact, .fact + .fact { padding: 20px 0 22px; border-right: 0; border-top: 1px solid var(--ink); }
+  .fact:first-child { border-top: 0; }
+  .video { grid-template-columns: 1fr; gap: 20px; padding: 36px 0; }
+  .sec-h { font-size: 30px; }
+  .work { padding: 36px 0 56px; }
+  .exhibit { grid-template-columns: 1fr; }
+  .exhibit figure { border-right: 0; border-bottom: var(--line); }
+  .exhibit .txt { padding: 20px 18px 22px; }
+  .exhibit h3 { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* Let grid children shrink below media intrinsic widths (prevents mobile overflow) */
+.room > *, .video > *, .exhibit > *, .facts > * { min-width: 0; }
