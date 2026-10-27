@@ -10,6 +10,9 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       input: {
         home: resolve(import.meta.dirname, 'index.html'),
+        resume: resolve(import.meta.dirname, 'resume/index.html'),
+        projects: resolve(import.meta.dirname, 'projects/index.html'),
+        contact: resolve(import.meta.dirname, 'contact/index.html'),
       },
     },
   },
