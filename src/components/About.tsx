@@ -6,7 +6,7 @@ import { SectionHeading } from './SectionHeading'
 const introCards = [
   {
     label: 'My program',
-    body: 'Honours Bachelor of Computer Science (Co-op) at York University’s Lassonde School of Engineering, expected graduation 2027.',
+    body: 'Honours Bachelor of Computer Science (Co-op) at York University’s Lassonde School of Engineering, expected graduation May 2028.',
   },
   {
     label: 'What I love about it',

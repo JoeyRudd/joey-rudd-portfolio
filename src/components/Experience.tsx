@@ -60,23 +60,22 @@ export function Experience() {
                 />
               </span>
               <div className="min-w-0">
-                <h3 className="text-lg font-semibold text-fg">Developer / Ops</h3>
+                <h3 className="text-lg font-semibold text-fg">Software Developer (Co-op)</h3>
                 <p className="mt-0.5 text-fg/80">Ontario Science Centre · Toronto, ON</p>
               </div>
             </div>
             <ul className="mt-4 max-w-prose list-inside list-disc space-y-2 text-left text-sm leading-relaxed text-fg/75">
               <li>
-                Developed interactive STEM games in Godot, including core gameplay loops, UI flows,
-                and data-driven content that supports engaging learning through play.
+                Deployed two interactive games as in-person exhibits at the Harbourfront Centre, reaching 5,000+ visitors and logging 4,200+ game sessions over three months.
               </li>
               <li>
-                Built browser-based games with React using component-driven architecture, state
-                management, and responsive layouts for smooth, accessible experiences across devices.
+                Optimized exhibits for 4K displays, multi-touch kiosk input, and WCAG 2.1 AA accessibility standards.
               </li>
               <li>
-                Created real-time 3D interactives with Three.js, tuning scene structure, materials,
-                and input handling so visitors can explore scientific concepts intuitively in the
-                browser.
+                Developed Extrema Buddies, a virtual pet game in Godot (GDScript) driven by state machines and physics.
+              </li>
+              <li>
+                Built Launch Into Rockets, a scroll-driven 3D explainer in Three.js with 3D models, parallax effects, and carousels covering each part of a rocket.
               </li>
             </ul>
           </div>

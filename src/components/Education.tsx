@@ -53,7 +53,7 @@ export function Education() {
         <motion.div variants={fadeUp}>
           <p className="font-medium text-fg">Honours Bachelor of Computer Science</p>
           <p className="mt-1 text-fg/75">York University, Lassonde School of Engineering</p>
-          <p className="mt-1 text-fg/75">Toronto, ON. Expected graduation May 2027</p>
+          <p className="mt-1 text-fg/75">Toronto, ON. Expected graduation May 2028</p>
         </motion.div>
 
         <motion.div variants={fadeUp}>
